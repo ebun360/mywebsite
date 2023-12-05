@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cute Page</title>
+  <style>
+   body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: rgb(251, 191, 222);
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    img {
+      width: 200px;
+      height: auto;
+      border-radius: 50%;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #f58ac8;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #b7ecb9;
+    }
+
+    .slideshow-container {
+      max-width: 800px;
+      position: relative;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    #adoptModal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    #adoptModalContent {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    #closeAdoptModal {
+      color: #888;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    #closeAdoptModal:hover {
+      color: #000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to the Cute Page!</h1>
+  <p>poo 0_o.</p>
+
+  <img src="https://placekitten.com/200/200" alt="Cute Kitten">
+
+  <p>Enjoy your stay and have a purrfect day 0_o!</p>
+
+  <button id="adoptButton">Adopt</button>
+
+  <div class="slideshow-container">
+    <div class="mySlides">
+      <img src="https://www.example.com/slide1.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <img src="https://www.example.com/slide2.jpg" style="width:100%">
+    </div>
+
+    <div style="text-align:center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+
+  <div id="adoptModal">
+    <div id="adoptModalContent">
+      <span id="closeAdoptModal" onclick="closeAdoptModal">&times;</span>
+      <h2>Adopt a Cute Kitten</h2>
+      <p>Would you like to adopt this adorable kitten?</p>
+      <button onclick="adoptKitten">Yes, Adopt!</button>
+    </div>
+  </div>
+
+  <script>
+
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      myIndex++;
+      if (myIndex > x.length) { myIndex = 1; }    
+      x[myIndex-1].style.display = "block";  
+      setTimeout(carousel, 4000);    
+    }
+
+  
+    document.getElementById("adoptButton").addEventListener("click", function() {
+      document.getElementById("adoptModal").style.display = "block";
+    });
+
+   
+    function closeAdoptModal() {
+      document.getElementById("adoptModal").style.display = "none";
+    }
+
+    
+    function adoptKitten() {
+      alert("Congratulations! You've adopted a cute kitten!");
+      closeAdoptModal();
+    }
+  </script>
+
+   
+
+</body>
+</html>
